@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from model_utils import predict_price_category
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(title="Real Estate Predictor API")
 
@@ -10,6 +12,13 @@ class Property(BaseModel):
     acre_lot: float
     house_size: float
     # Agrega aquí las demás variables según tu X_train de Colab
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/predict")
 async def handle_prediction(prop: Property):
