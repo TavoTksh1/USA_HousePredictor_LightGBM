@@ -17,7 +17,7 @@ def predict_price_category(data_dict):
     df = pd.DataFrame([data_dict])
 
     # Feature engineering — igual que en Colab
-    df['price_per_sqft']      = 0  # no tenemos precio aún, placeholder
+    df['price_per_sqft'] = 201.32  # no tenemos precio aún, placeholder
     df['bed_bath_ratio']      = df['bed'] / df['bath']
     df['size_per_bed']        = df['house_size'] / df['bed']
     df['lot_to_house_ratio']  = df['acre_lot'] / df['house_size']
