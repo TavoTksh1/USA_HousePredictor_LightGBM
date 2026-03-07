@@ -15,7 +15,7 @@ class Property(BaseModel):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],  # Cambia esto durante desarrollo
     allow_methods=["*"],
     allow_headers=["*"],
 )
