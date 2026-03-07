@@ -3,3 +3,22 @@ __pycache__/
 .env
 .DS_Store
 model/*.pklbackend/model/rf_model.pkl
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Model (puede ser muy pesado)
+backend/model/*.pkl
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
