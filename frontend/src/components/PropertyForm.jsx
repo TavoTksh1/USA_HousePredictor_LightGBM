@@ -34,7 +34,7 @@ export default function PropertyForm({ onResult, onLoading }) {
       const payload = Object.fromEntries(
         Object.entries(values).map(([k, v]) => [k, parseFloat(v)])
       )
-      const res = await fetch('http://ec2-44-220-152-125.compute-1.amazonaws.com :8000/predict', {
+      const res = await fetch('http://ec2-44-220-152-125.compute-1.amazonaws.com:8000/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
