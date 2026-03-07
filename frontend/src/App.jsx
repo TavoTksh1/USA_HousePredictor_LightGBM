@@ -18,22 +18,22 @@ export default function App() {
           </div>
           <div style={styles.statusPill}>
             <span style={styles.statusDot} />
-            <span style={styles.statusLabel}>API Connected</span>
+            <span style={styles.statusLabel}>API Conectada</span>
           </div>
         </div>
       </header>
 
       {/* Hero */}
       <section style={styles.hero}>
-        <p style={styles.heroEyebrow}>Real Estate · ML Powered</p>
+        <p style={styles.heroEyebrow}>Bienes Raíces · Potenciado por ML</p>
         <h1 style={styles.heroTitle}>
-          Price Category
+          Categoría de
           <br />
-          <span style={styles.heroAccent}>Predictor</span>
+          <span style={styles.heroAccent}>Precio</span>
         </h1>
         <p style={styles.heroSub}>
-          Enter property attributes below and get an instant price category prediction
-          powered by a Random Forest model.
+          Ingresa los atributos de la propiedad y obtén una predicción instantánea
+          de categoría de precio con un modelo Random Forest.
         </p>
       </section>
 
@@ -47,15 +47,15 @@ export default function App() {
           {loading ? (
             <div style={styles.loadingCard}>
               <div style={styles.spinner} />
-              <p style={styles.loadingText}>Running model...</p>
+              <p style={styles.loadingText}>Ejecutando modelo...</p>
             </div>
           ) : result ? (
             <ResultCard result={result} />
           ) : (
             <div style={styles.emptyCard}>
               <span style={styles.emptyIcon}>◎</span>
-              <p style={styles.emptyTitle}>Awaiting Input</p>
-              <p style={styles.emptySub}>Fill in the form and hit Run Prediction to see the result here.</p>
+              <p style={styles.emptyTitle}>Esperando datos</p>
+              <p style={styles.emptySub}>Completa el formulario y presiona Predecir para ver el resultado aquí.</p>
             </div>
           )}
         </div>
@@ -63,7 +63,7 @@ export default function App() {
 
       {/* Footer */}
       <footer style={styles.footer}>
-        <span style={styles.footerText}>FastAPI · scikit-learn · React · Vite</span>
+        <span style={styles.footerText}>FastAPI · scikit-learn · React · Vite · Parcial ML</span>
       </footer>
 
       <style>{`

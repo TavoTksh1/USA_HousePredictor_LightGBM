@@ -4,21 +4,21 @@ const categoryConfig = {
     bg: 'rgba(200,241,53,0.06)',
     border: 'rgba(200,241,53,0.2)',
     icon: '▲',
-    label: 'HIGH VALUE',
+    label: 'VALOR ALTO',
   },
   Medium: {
     color: 'var(--medium)',
     bg: 'rgba(245,197,24,0.06)',
     border: 'rgba(245,197,24,0.2)',
     icon: '◆',
-    label: 'MID RANGE',
+    label: 'RANGO MEDIO',
   },
   Low: {
     color: 'var(--low)',
     bg: 'rgba(255,107,107,0.06)',
     border: 'rgba(255,107,107,0.2)',
     icon: '▼',
-    label: 'REDUCED PRICE',
+    label: 'PRECIO REDUCIDO',
   },
 }
 
@@ -30,9 +30,9 @@ export default function ResultCard({ result }) {
       <div style={{ ...styles.card, borderColor: 'rgba(255,107,107,0.3)' }}>
         <div style={styles.errorState}>
           <span style={styles.errorIcon}>⚠</span>
-          <p style={styles.errorTitle}>Prediction Failed</p>
+          <p style={styles.errorTitle}>Predicción Fallida</p>
           <p style={styles.errorMsg}>{result.error}</p>
-          <p style={styles.errorHint}>Make sure the FastAPI server is running on port 8000.</p>
+          <p style={styles.errorHint}>Asegúrate de que el servidor FastAPI esté corriendo en el puerto 8000.</p>
         </div>
       </div>
     )
@@ -44,8 +44,8 @@ export default function ResultCard({ result }) {
   return (
     <div style={styles.card}>
       <div style={styles.header}>
-        <span style={styles.tag}>RESULT</span>
-        <h2 style={styles.title}>Prediction Output</h2>
+        <span style={styles.tag}>RESULTADO</span>
+        <h2 style={styles.title}>Resultado de Predicción</h2>
       </div>
 
       {/* Category badge */}
@@ -60,14 +60,14 @@ export default function ResultCard({ result }) {
 
       {/* Action */}
       <div style={styles.actionBox}>
-        <p style={styles.actionTitle}>Automated Action</p>
+        <p style={styles.actionTitle}>Acción Automatizada</p>
         <p style={styles.actionText}>{result.accion_automatizada}</p>
       </div>
 
       {/* Status */}
       <div style={styles.statusRow}>
         <span style={styles.statusDot} />
-        <span style={styles.statusText}>Status: {result.status}</span>
+        <span style={styles.statusText}>Estado: {result.status}</span>
         <span style={styles.timestamp}>{new Date().toLocaleTimeString()}</span>
       </div>
     </div>

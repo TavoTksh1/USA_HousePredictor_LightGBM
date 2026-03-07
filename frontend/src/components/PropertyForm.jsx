@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
 const fields = [
-  { key: 'bed',        label: 'Bedrooms',       unit: 'rooms',  step: 1,   min: 0 },
-  { key: 'bath',       label: 'Bathrooms',      unit: 'rooms',  step: 0.5, min: 0 },
-  { key: 'acre_lot',   label: 'Lot Size',       unit: 'acres',  step: 0.01,min: 0 },
-  { key: 'house_size', label: 'House Size',     unit: 'sq ft',  step: 10,  min: 0 },
+  { key: 'bed',        label: 'Habitaciones',   unit: 'cuartos', step: 1,   min: 0 },
+  { key: 'bath',       label: 'Baños',          unit: 'baños',   step: 0.5, min: 0 },
+  { key: 'acre_lot',   label: 'Tamaño del Lote',unit: 'acres',   step: 0.01,min: 0 },
+  { key: 'house_size', label: 'Tamaño de Casa', unit: 'sq ft',   step: 10,  min: 0 },
 ]
 
 const defaultValues = { bed: '', bath: '', acre_lot: '', house_size: '' }
@@ -18,9 +18,9 @@ export default function PropertyForm({ onResult, onLoading }) {
     const e = {}
     fields.forEach(f => {
       if (values[f.key] === '' || isNaN(Number(values[f.key]))) {
-        e[f.key] = 'Required'
+        e[f.key] = 'Requerido'
       } else if (Number(values[f.key]) < 0) {
-        e[f.key] = 'Must be ≥ 0'
+        e[f.key] = 'Debe ser ≥ 0'
       }
     })
     setErrors(e)
@@ -34,7 +34,7 @@ export default function PropertyForm({ onResult, onLoading }) {
       const payload = Object.fromEntries(
         Object.entries(values).map(([k, v]) => [k, parseFloat(v)])
       )
-      const res = await fetch('http://ec2-44-220-152-125.compute-1.amazonaws.com:8000/predict', {
+      const res = await fetch('/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -58,9 +58,9 @@ export default function PropertyForm({ onResult, onLoading }) {
   return (
     <div style={styles.card}>
       <div style={styles.cardHeader}>
-        <span style={styles.tag}>INPUT</span>
-        <h2 style={styles.cardTitle}>Property Details</h2>
-        <p style={styles.cardSub}>Fill in the property attributes to get a price category prediction.</p>
+        <span style={styles.tag}>ENTRADA</span>
+        <h2 style={styles.cardTitle}>Detalles de la Propiedad</h2>
+        <p style={styles.cardSub}>Completa los atributos de la propiedad para obtener una predicción de categoría de precio.</p>
       </div>
 
       <div style={styles.grid}>
@@ -91,9 +91,9 @@ export default function PropertyForm({ onResult, onLoading }) {
       </div>
 
       <div style={styles.actions}>
-        <button onClick={handleReset} style={styles.btnReset}>Reset</button>
+        <button onClick={handleReset} style={styles.btnReset}>Limpiar</button>
         <button onClick={handleSubmit} style={styles.btnSubmit}>
-          <span>Run Prediction</span>
+          <span>Predecir</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
